@@ -75,7 +75,7 @@ ri_end = np.sqrt(k*time[end_index]/(948.0*porosity*viscosity*ct))
 
 # Print results
 
-st.text(f"Fitted line: p_{wf} = {slope:.4f} * log(t) + {intercept:.4f}")
+st.text(f"Fitted line: p_wf = {slope:.4f} * log(t) + {intercept:.4f}")
 st.text(f"Coefficient of determination (R²): {R_squared:.4f}")
 st.text(f"Permeability): {k:.4f}")
 st.text(f"Skin Factor): {Skin:.4f}")
