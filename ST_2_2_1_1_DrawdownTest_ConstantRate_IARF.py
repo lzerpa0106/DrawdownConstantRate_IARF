@@ -36,11 +36,9 @@ st.title("Drawdown Well Test - Semilog Analysis")
 st.text('Constant rate production and Infinite Acting Radial Flow')
 
 
-
-
 # ---- User-defined range for fitting ----
-start_index = st.slider("Start index", 0.0, np.size(time), 55)   # e.g. fit starting from index 10
-end_index   = st.slider("End index", 0.0, np.size(time), 77)   # e.g. fit ending at index 50
+start_index = st.slider("Start index", 0, np.size(time), 55)   # e.g. fit starting from index 10
+end_index   = st.slider("End index", 0, np.size(time), 77)   # e.g. fit ending at index 50
 
 
 # Select data range
