@@ -74,15 +74,13 @@ ri_start = np.sqrt(k*time[start_index]/(948.0*porosity*viscosity*ct))
 ri_end = np.sqrt(k*time[end_index]/(948.0*porosity*viscosity*ct))
 
 # Print results
-#print(f"Fitted line: y = {slope:.4f} * x + {intercept:.4f}")
-#print(f"Coefficient of determination (R²): {R_squared:.4f}")
 
-#st.text(f"Fitted line: y = {slope:.4f} * x + {intercept:.4f}")
-#st.text(f"Coefficient of determination (R²): {R_squared:.4f}")
-#st.text(f"Permeability): {k:.4f}")
-#st.text(f"Skin Factor): {Skin:.4f}")
-#st.text(f"Radius of investigation at the start): {ri_start:.4f}")
-#st.text(f"Radius of investigation at the end): {ri_end:.4f}")
+st.text(f"Fitted line: y = {slope:.4f} * x + {intercept:.4f}")
+st.text(f"Coefficient of determination (R²): {R_squared:.4f}")
+st.text(f"Permeability): {k:.4f}")
+st.text(f"Skin Factor): {Skin:.4f}")
+st.text(f"Radius of investigation at the start): {ri_start:.4f}")
+st.text(f"Radius of investigation at the end): {ri_end:.4f}")
 
 
 fig, ax = plt.subplots(figsize=(8, 5))  # Create a figure containing a single axes.
