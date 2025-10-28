@@ -12,7 +12,6 @@ Constant rate production and Infinite Acting Radial Flow
 
 import numpy as np
 import matplotlib.pyplot as plt
-#from sklearn.linear_model import LinearRegression
 import streamlit as st
 
 # Well Test Data
