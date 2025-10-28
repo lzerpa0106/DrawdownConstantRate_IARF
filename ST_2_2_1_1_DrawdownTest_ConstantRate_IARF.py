@@ -48,20 +48,19 @@ end_index   = st.slider("End index", 0.0, np.size(time), 77)   # e.g. fit ending
 x = np.log10(time[start_index:end_index])
 y = pressure[start_index:end_index]
 
-# Reshape for sklearn
-X = x.reshape(-1, 1)
-Time = np.log10(time).reshape(-1, 1)
+# Fit straight line model
+coefficients, residuals, _, _, _ = np.polyfit(x, y, deg=1, full=True)
 
-# Perform linear regression
-model = LinearRegression()
-model.fit(X, y)
-y_pred = model.predict(Time)
+slope = coefficients[0]
+intercept = coefficients[1]
 
+SSE = residuals[0]
+mean_y = np.mean(y)
+SST = np.sum((y - mean_y)**2)
+R_squared = 1 - (SSE / SST)
 
-# Coefficients
-slope = model.coef_[0]
-intercept = model.intercept_
-r_squared = model.score(X, y)
+y_pred = intercept + slope*np.log10(time)
+
 
 p_1hr = intercept
 
@@ -79,10 +78,10 @@ ri_end = np.sqrt(k*time[end_index]/(948.0*porosity*viscosity*ct))
 
 # Print results
 print(f"Fitted line: y = {slope:.4f} * x + {intercept:.4f}")
-print(f"Coefficient of determination (R²): {r_squared:.4f}")
+print(f"Coefficient of determination (R²): {R_squared:.4f}")
 
 st.text(f"Fitted line: y = {slope:.4f} * x + {intercept:.4f}")
-st.text(f"Coefficient of determination (R²): {r_squared:.4f}")
+st.text(f"Coefficient of determination (R²): {R_squared:.4f}")
 st.text(f"Permeability): {k:.4f}")
 st.text(f"Skin Factor): {Skin:.4f}")
 st.text(f"Radius of investigation at the start): {ri_start:.4f}")
